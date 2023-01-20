@@ -6,7 +6,7 @@ RutasTareasedit.post('/tareas', async (req, res)=>{
     try {
         const tarea = TareasShema(req.body)
         await tarea.save();
-        res.json(tarea)
+        res.json(tarea);
     } catch (error) {
         console.log(error);
     }
