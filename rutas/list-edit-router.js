@@ -1,6 +1,9 @@
 const express = require('express');
 const RutasTareasedit = express.Router();
+const {validacionbody} = require('../rutas/middelwares/middelware');
 const TareasShema = require('../model/tareasModel');
+
+RutasTareasedit.use(validacionbody);
 
 RutasTareasedit.post('/tareas', async (req, res)=>{
     try {
