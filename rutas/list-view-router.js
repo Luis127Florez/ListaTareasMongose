@@ -6,7 +6,7 @@ const {validarParametros} = require('./middelwares/middelware');
 
 RutasTareasedit.get('/tareas', async (req, res)=>{
     try {
-        const tareas = await TareasShema.find();
+        const tareas = await TareasShema.find({},{__v:0});
         res.json(tareas)
     } catch (error) {
         console.log(error);
@@ -20,7 +20,7 @@ RutasTareasedit.get('/tareas/:propiedad',validarParametros, async (req, res)=>{
     
     if (propiedad == 'completadas'){
         try {
-            const tareas = await TareasShema.find({estado:true} );
+            const tareas = await TareasShema.find({estado:true});
             res.json(tareas)
         } catch (error) {
             console.log(error);
@@ -28,7 +28,7 @@ RutasTareasedit.get('/tareas/:propiedad',validarParametros, async (req, res)=>{
     }
     if (propiedad == 'incompletas') {
         try {
-            const tareas = await TareasShema.find({estado:false} );
+            const tareas = await TareasShema.find({estado:false});
             res.json(tareas)
         } catch (error) {
             console.log(error);

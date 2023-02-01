@@ -19,10 +19,8 @@ RutasTareasedit.post('/tareas', async (req, res)=>{
 RutasTareasedit.put('/tareas/:id', async (req, res)=>{
     const {id} = req.params;  
     try {
-        const tarea = await TareasShema.findById(id);
-        await tarea.update(req.body);
-        const newtarea = await TareasShema.findById(id);
-        res.json(newtarea);
+        const tarea = await TareasShema.updateOne({_id: id}, req.body);
+        res.json(tarea);
     } catch (error) {
         console.log(error);
     }

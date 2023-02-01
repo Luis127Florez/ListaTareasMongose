@@ -72,8 +72,14 @@ function validarurl(req, res , nex) {
 
     if (array[1] == 'app' && array[2]=='tareas') {
         return nex();
+    }else if(array[1] == 'app' && array[2]=='users'){
+        return nex();
+    }else if(array[1] == 'app' && array[2]=='tareasbyId'){
+        return nex();
+
     }else{
         res.send("la url es inbalida");
+
     }
 }
 
