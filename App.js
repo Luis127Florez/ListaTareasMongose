@@ -9,6 +9,8 @@ const RutasUsers = require('./rutas/user-Routes');
 const verificarToken = require('./rutas/middelwares/auhtjwt');
 require('dotenv').config();
 
+
+app.use(express.json());
 Mongose.set("strictQuery", false);
 Mongose.connect(`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@cluster0.zgzjdds.mongodb.net/?retryWrites=true&w=majority`)
 .then(()=>console.log("Connected to MongoDB!"))
@@ -16,7 +18,9 @@ Mongose.connect(`mongodb+srv://${process.env.USER}:${process.env.PASSWORD}@clust
 
 app.use(validacionPeticion);
 app.use(validarurl);
-app.use('/app', express.json(),RutasUsers)
+
+
+app.use('/app', RutasUsers)
 app.use('/app', verificarToken,RutasTareaslist);
 app.use('/app', verificarToken,express.json(),RutasTareasedit);
 
