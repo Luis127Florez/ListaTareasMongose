@@ -1,0 +1,3 @@
+#¿Qué es mi producto y para que sirve? Una API o interfaz de programación de aplicaciones conjunto de definiciones y protocolos que se usa para  almacenar una listas de tareas las cuales retorna en un formato Json para ser mostradas en la parte del fron-end de un sistema
+
+#¿Cuáles son las funcionalidades más importantes y porque los usuarios las usarían? La principal funcionalidad de este servidor es su respuesta. Responde con una lista de tareas en forma de Json para que los usuarios la usen a su conveniencia ya sea mostrarla en tabla o en un scrollbar posterios prodra editarla, guardar una nueva y eliminarla
