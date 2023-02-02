@@ -7,8 +7,9 @@ const {validarParametros} = require('./middelwares/middelware');
 RutasTareasedit.get('/tareas', async (req, res)=>{
     try {
         const tareas = await TareasShema.find({},{__v:0});
-        res.json(tareas)
+        res.status(200).json(tareas)
     } catch (error) {
+        res.status(500).json("error en el server");
         console.log(error);
     }
 });
@@ -21,16 +22,18 @@ RutasTareasedit.get('/tareas/:propiedad',validarParametros, async (req, res)=>{
     if (propiedad == 'completadas'){
         try {
             const tareas = await TareasShema.find({estado:true});
-            res.json(tareas)
+            res.status(200).json(tareas)
         } catch (error) {
+            res.status(500).json("error en el server")
             console.log(error);
         }  
     }
     if (propiedad == 'incompletas') {
         try {
             const tareas = await TareasShema.find({estado:false});
-            res.json(tareas)
+            res.status(200).json(tareas)
         } catch (error) {
+            res.status(500).json("error en el server")
             console.log(error);
         }
         
@@ -45,7 +48,7 @@ RutasTareasedit.get('/tareasbyId/:id',validarParametros ,async (req, res)=>{
         const tareas = await TareasShema.findById(id);
         res.json(tareas)
     } catch (error) {
-        res.json("no existe una tarea con ese id")
+        res.status(500).json("error en el server")
         console.log(error);
     }
 });
